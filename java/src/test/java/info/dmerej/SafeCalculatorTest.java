@@ -12,7 +12,14 @@ class AcceptingAuthorizer implements Authorizer {
     public boolean authorize() {
         return true;
     }
-}
+  }
+
+  class RefusingAuthorizer implements Authorizer {
+      @Override
+      public boolean authorize() {
+          return false;
+      }
+  }
 
 public class SafeCalculatorTest {
   @Test
@@ -22,4 +29,15 @@ public class SafeCalculatorTest {
     SafeCalculator safeCalculator = new SafeCalculator(new AcceptingAuthorizer());
     assertEquals(3, safeCalculator.add(left, right));
   }
+    @Test
+    void should_throw_when_not_authorized() {
+        int left = 1;
+        int right = 2;
+        SafeCalculator safeCalculator = new SafeCalculator(new RefusingAuthorizer());
+        assertEquals("Not authorized", safeCalculator.add(left, right));
+    }
 }
+
+
+
+
