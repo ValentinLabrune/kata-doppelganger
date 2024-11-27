@@ -1,7 +1,8 @@
 package info.dmerej;
 
+import info.dmerej.mailprovider.SendMailRequest;
+import info.dmerej.mailprovider.SendMailResponse;
 import org.junit.jupiter.api.Test;
-
 
 public class MailSenderTest {
     @Test
