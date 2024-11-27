@@ -2,6 +2,7 @@ package info.dmerej;
 
 import org.junit.jupiter.api.Test;
 
+
 public class MailSenderTest {
     @Test
     void should_make_a_valid_http_request() {
